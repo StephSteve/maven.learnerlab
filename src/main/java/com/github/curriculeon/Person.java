@@ -1,6 +1,6 @@
 package com.github.curriculeon;
 
-public class Person {
+public abstract class Person {
     final Long id;
     String name;
 
@@ -21,4 +21,8 @@ public class Person {
     public void setName(String name) {
         this.name = name;
     }
+
+    public abstract void learn(Double numberOfHours);
+
+    public abstract Double getTotalStudyTime();
 }
