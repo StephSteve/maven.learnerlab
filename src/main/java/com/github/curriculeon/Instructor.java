@@ -1,7 +1,7 @@
 package com.github.curriculeon;
 
-public abstract class Instructor extends Person implements Teacher{
-    Instructor(long id, String name) {
+public class Instructor extends Person implements Teacher {
+    public Instructor(Long id, String name) {
         super(id, name);
     }
 
@@ -57,11 +57,16 @@ public abstract class Instructor extends Person implements Teacher{
 
     @Override
     public void teach(Double numberOfHours, Learner learner) {
+        learner.learn(numberOfHours);
 
     }
 
     @Override
     public void lecture(Learner[] learners, double numberOfHours) {
-
+        double numberOfHoursPerLearner = numberOfHours / learners.length;
+        for (int i = 0; i < learners.length; i++) {
+            Learner learner = learners[i];
+            learner.learn(numberOfHoursPerLearner);
+        }
     }
 }
